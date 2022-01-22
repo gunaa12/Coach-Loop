@@ -8,24 +8,33 @@ public class Coach {
     private int numberOfGames;
     private int winMargin;
     private int lossMargin;
+    private double wnLsMrgnRatio;
     private double playerRating;
     private int numPlayersRated;
     private double finalRating;
 
-    public static String getName() {
+    public String getName() {
         return this.first_name + " " + this.last_name;
     }
 
-    public static String getTeam() {
+    public String getTeam() {
         return this.school;
     }
 
-    public static double getWinLossRating() {
+    public double getFinalRating() {
+        return this.finalRating;
+    }
+
+    public void setFinalRating(double newFinalRating) {
+        this.finalRating = newFinalRating;
+    }
+
+    public double getWinLossRating() {
         return this.winLossRatio * 5.0 / 2.0;
     }
 
-    public static void updateWinLossRatio(int newMargin) {
-        int numberOfWins = Math.round(this.winLossRatio * this.numberOfGames);
+    public void updateWinLossRatio(int newMargin) {
+        int numberOfWins = (int) Math.round(this.winLossRatio * this.numberOfGames);
         this.numberOfGames += 1;
         if (newMargin > 0) {
             numberOfWins += 1;
@@ -36,14 +45,16 @@ public class Coach {
         }
         this.winLossRatio = ((double) numberOfWins) / ((double) this.numberOfGames);
     }
-    
-    public static void updatePlayerRating(double newRating) {
+
+    public void updatePlayerRating(double newRating) {
         double totalRating = ((double) this.numPlayersRated) * this.playerRating;
         this.playerRating = (this.playerRating + newRating) / totalRating;
     }
-    
-    public static void updateFinalRating(int newMargin) {
-        this.finalRating = (getWinLossRating(updateWinLossRatio(newMargin)) 
-                + this.playerRating) / 2.0 ;
+
+    public void updateFinalRating(int newMargin) {
+        updateWinLossRatio(newMargin);
+        this.wnLsMrgnRatio = ((double) this.winMargin) / (double) (this.winMargin + this.lossMargin);
+        this.finalRating = (getWinLossRating()
+                + this.playerRating + this.wnLsMrgnRatio) / 3.0 ;
     }
 }
