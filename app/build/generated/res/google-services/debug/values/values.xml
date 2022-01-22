@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">266034510039-4u5m80a0nptpna6fraq3a4n0qacghe00.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">266034510039</string>
+    <string name="google_api_key" translatable="false">AIzaSyCtWH2NSbW51YsoDEiAz_HbBftZP1vxTaQ</string>
+    <string name="google_app_id" translatable="false">1:266034510039:android:003e3fe85c41ea90545892</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCtWH2NSbW51YsoDEiAz_HbBftZP1vxTaQ</string>
+    <string name="google_storage_bucket" translatable="false">boilermake-bd915.appspot.com</string>
+    <string name="project_id" translatable="false">boilermake-bd915</string>
+</resources>

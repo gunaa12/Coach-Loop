@@ -3,8 +3,8 @@
     <string name="name">Coach Grades</string>
     <string name="login">Login</string>
     <string name="create">Create Account</string>
-    <string name="email">Email: </string>
-    <string name="password">Password: </string>\
-    <string name="conf_password">Confirm Password: </string>
+    <string name="email">Email\: </string>
+    <string name="password">Password\: </string>
+    <string name="conf_password">Confirm Password\: </string>
 
 </resources>
