@@ -1,4 +1,5 @@
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class Coach {
     private String first_name;
@@ -6,6 +7,7 @@ public class Coach {
     private String school;
     private double winLossRatio;
     private int numberOfGames;
+    private ArrayList<ArrayList<Integer>> gamesPlayed;
     private int winMargin;
     private int lossMargin;
     private double wnLsMrgnRatio;
@@ -34,6 +36,19 @@ public class Coach {
     }
 
     public void updateWinLossRatio(int newMargin) {
+        if (this.gamesPlayed.size() == 0) {
+            ArrayList<Integer> newGameList = new ArrayList<Integer>();
+            newGameList.add(newMargin > 0 ? 1:0);
+            this.gamesPlayed.add(newGameList);
+        }
+        else if (this.gamesPlayed.get(this.gamesPlayed.size()-1).size() >= 10) {
+            ArrayList<Integer> newGameList = new ArrayList<Integer>();
+            newGameList.add(newMargin > 0 ? 1:0);
+            this.gamesPlayed.add(newGameList);
+        }
+        else {
+            this.gamesPlayed.get(this.gamesPlayed.size()-1).add(newMargin > 0 ? 1:0);
+        }
         int numberOfWins = (int) Math.round(this.winLossRatio * this.numberOfGames);
         this.numberOfGames += 1;
         if (newMargin > 0) {
