@@ -2,9 +2,6 @@ package com.example.stockerranker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,19 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mAuth = FirebaseAuth.getInstance();
                 mAuth.createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
-
-                if (value.equals("create")) {
-                    if ((etEmail.getText() != null && etPassword.getText() != null && etConfPassword.getText() != null) &&
-                            (etPassword.getText().equals(etConfPassword.getText()))) {
-                        mAuth = FirebaseAuth.getInstance();
-                    }
-                }
             }
         });
-
-
-
     }
 }
