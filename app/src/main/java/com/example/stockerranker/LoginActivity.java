@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             value = extras.getString("key");
-            Log.d(TAG, value);
             //The key argument here must match that used in the other activity
         }
 
@@ -64,8 +63,22 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth = FirebaseAuth.getInstance();
-                mAuth.createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+
+                //create account
+                if (value.equals("create")) {
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+
+                    //sign in
+                } else if (value.equals("login")) {
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+                }
+
+                //if login or create account is successful launch the homepage
+                if (mAuth.getCurrentUser() != null) {
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                }
             }
         });
     }

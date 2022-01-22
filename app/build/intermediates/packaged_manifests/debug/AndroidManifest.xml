@@ -26,6 +26,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.StockerRanker" >
         <activity
+            android:name="com.example.stockerranker.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.stockerranker.LoginActivity"
             android:exported="false" />
         <activity
