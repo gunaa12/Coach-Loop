@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
 
     //value taken from MainActivity
     String value = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,22 +64,42 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //create account
-                if (value.equals("create")) {
-                    mAuth = FirebaseAuth.getInstance();
-                    mAuth.createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+                try {
+                    //create account
+                    if (value.equals("create")) {
+                        mAuth = FirebaseAuth.getInstance();
+                        mAuth.createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+                        slow();
 
-                    //sign in
-                } else if (value.equals("login")) {
-                    mAuth = FirebaseAuth.getInstance();
-                    mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
-                }
+                        //sign in
+                    } else if (value.equals("login")) {
+                        mAuth = FirebaseAuth.getInstance();
+                        mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString());
+                        slow();
+                    }
 
-                //if login or create account is successful launch the homepage
-                if (mAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    //if login or create account is successful launch the homepage
+                    if (mAuth.getCurrentUser() != null) {
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
+
+    }
+
+    void slow() {
+        //delay the program
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1827,9 +1827,14 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnCard1
+id btnCard2
+id btnCard3
+id btnCard4
 id btnCreate
 id btnLogin
 id btnLogout
+id btnProfile
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -2445,6 +2450,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string profile
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow

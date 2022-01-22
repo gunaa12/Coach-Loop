@@ -1826,9 +1826,14 @@ int id browser_actions_menu_item_icon 0x7f08005a
 int id browser_actions_menu_item_text 0x7f08005b
 int id browser_actions_menu_items 0x7f08005c
 int id browser_actions_menu_view 0x7f08005d
+int id btnCard1 0x7f0801b0
+int id btnCard2 0x7f0801b1
+int id btnCard3 0x7f0801b2
+int id btnCard4 0x7f0801b3
 int id btnCreate 0x7f08005e
 int id btnLogin 0x7f08005f
 int id btnLogout 0x7f0801af
+int id btnProfile 0x7f0801b4
 int id buttonPanel 0x7f080060
 int id cache_measures 0x7f080061
 int id cancel_button 0x7f080062
@@ -2444,6 +2449,7 @@ int string path_password_eye 0x7f0e007c
 int string path_password_eye_mask_strike_through 0x7f0e007d
 int string path_password_eye_mask_visible 0x7f0e007e
 int string path_password_strike_through 0x7f0e007f
+int string profile 0x7f0e0084
 int string project_id 0x7f0e0080
 int string search_menu_title 0x7f0e0081
 int string status_bar_notification_info_overflow 0x7f0e0082

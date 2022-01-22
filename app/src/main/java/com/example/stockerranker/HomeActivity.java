@@ -9,10 +9,13 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.UUID;
+
 public class HomeActivity extends AppCompatActivity {
 
 
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth = FirebaseAuth.getInstance();
                 mAuth.signOut();
+
                 startActivity(new Intent(HomeActivity.this, MainActivity.class));
             }
         });
