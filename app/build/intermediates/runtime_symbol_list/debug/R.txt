@@ -1736,6 +1736,7 @@ int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id CTRL 0x7f080003
+int id Description 0x7f0801b5
 int id FUNCTION 0x7f080004
 int id META 0x7f080005
 int id NO_DEBUG 0x7f080006
@@ -1834,6 +1835,7 @@ int id btnCreate 0x7f080062
 int id btnLogin 0x7f080063
 int id btnLogout 0x7f080064
 int id btnProfile 0x7f080065
+int id btnSubmit 0x7f0801b6
 int id buttonPanel 0x7f080066
 int id cache_measures 0x7f080067
 int id cancel_button 0x7f080068
@@ -1901,6 +1903,7 @@ int id edit_query 0x7f0800a5
 int id elastic 0x7f0800a6
 int id end 0x7f0800a7
 int id endToStart 0x7f0800a8
+int id enter 0x7f0801b7
 int id enterAlways 0x7f0800a9
 int id enterAlwaysCollapsed 0x7f0800aa
 int id etConfPassword 0x7f0800ab
@@ -2230,6 +2233,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_coach 0x7f0b0073
 int layout activity_home 0x7f0b001c
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
@@ -2449,10 +2453,12 @@ int string path_password_eye 0x7f0e007d
 int string path_password_eye_mask_strike_through 0x7f0e007e
 int string path_password_eye_mask_visible 0x7f0e007f
 int string path_password_strike_through 0x7f0e0080
+int string pleaseEnter 0x7f0e0085
 int string profile 0x7f0e0081
 int string project_id 0x7f0e0082
 int string search_menu_title 0x7f0e0083
 int string status_bar_notification_info_overflow 0x7f0e0084
+int string submit 0x7f0e0086
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style AndroidThemeColorAccentYellow 0x7f0f0002

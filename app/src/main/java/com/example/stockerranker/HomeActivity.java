@@ -1,5 +1,6 @@
 package com.example.stockerranker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,8 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,16 +28,31 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
-    private void pushToCloud(String name, String school, String review, int wins, int losses, int rating, float avgPointWin) {
+    private void pushToCloud(String name, String school, String review, int wins, int losses, int rating, double avgPointWin) {
         try {
-            Map<String, Object> coach = new HashMap<String, Object>();
-            coach.put("school", school);
-            coach.put("wins", wins);
-            coach.put("losses", losses);
-            coach.put("rating", rating);
-            coach.put("review", review);
-            coach.put("avgPointWin", avgPointWin);
-            db.collection("Coaches").document(name).set(coach);
+            db.collection("Coaches").document(name).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        String reviews = "";
+                        long numOfReviews = 1;
+                        if (document.exists()) {
+                            reviews += (String) document.getData().get("reviews");
+                            numOfReviews += (long) document.getData().get("numOfReviews");
+                        }
+                        Map<String, Object> coach = new HashMap<String, Object>();
+                        coach.put("school", school);
+                        coach.put("wins", wins);
+                        coach.put("losses", losses);
+                        coach.put("rating", rating);
+                        coach.put("reviews", reviews + "; " + review);
+                        coach.put("avgPointWin", avgPointWin);
+                        coach.put("numOfReviews", numOfReviews);
+                        db.collection("Coaches").document(name).set(coach);
+                    }
+                }
+            });
         } catch (Exception e) {
             Toast.makeText(HomeActivity.this, "Push to Cloud Failed!", Toast.LENGTH_SHORT).show();
         }
@@ -50,6 +70,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         db = FirebaseFirestore.getInstance();
+
+        pushToCloud("hello", "idk2", "idk 2", 3, 6, 1, 3.4);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
