@@ -1,8 +1,3 @@
-com/example/stockerranker/LoginActivity.java
- com.example.stockerranker.LoginActivity
- com.example.stockerranker.LoginActivity$1
-com/example/stockerranker/BuildConfig.java
- com.example.stockerranker.BuildConfig
 com/example/stockerranker/HomeActivity.java
  com.example.stockerranker.HomeActivity
  com.example.stockerranker.HomeActivity$1
@@ -10,3 +5,8 @@ com/example/stockerranker/MainActivity.java
  com.example.stockerranker.MainActivity
  com.example.stockerranker.MainActivity$1
  com.example.stockerranker.MainActivity$2
+com/example/stockerranker/BuildConfig.java
+ com.example.stockerranker.BuildConfig
+com/example/stockerranker/LoginActivity.java
+ com.example.stockerranker.LoginActivity
+ com.example.stockerranker.LoginActivity$1
