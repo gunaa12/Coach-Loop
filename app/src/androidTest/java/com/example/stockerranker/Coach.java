@@ -56,7 +56,7 @@ public class Coach {
             this.winMargin += newMargin;
         }
         else {
-            this.lossMargin += newMargin;
+            this.lossMargin -= newMargin;
         }
         this.winLossRatio = ((double) numberOfWins) / ((double) this.numberOfGames);
     }
