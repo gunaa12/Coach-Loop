@@ -8,9 +8,11 @@ from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 
 # read the review from the review file
-file_input = open("ml/model2/review_com_file.txt", "r")
+file_input = open("review_com_file.txt", "r")
 review = file_input.read()
 file_input.close()
+
+print(review)
 
 # initializing
 nltk.download('stopwords')
@@ -39,7 +41,7 @@ print(y_pred)
 
 # write the rating back to the rating file
 
-file_output = open("ml/model2/rating_com_file.txt", "r+")
+file_output = open("rating_com_file.txt", "r+")
 
 # delete a rating if a previous rating is there
 file_output.seek(0)

@@ -14,7 +14,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -58,11 +57,14 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private int getMLRating(String review) throws IOException {
-        File file = new File("../../../../../ml/model2/rating_com_file.txt");
-        try(BufferedReader br = new BufferedReader(new FileReader(file)) {
-            int ratingml = Integer.parseInt(br.readLine());
-        System.out.println("Rating: " + ratingml);
+    private int getMLRating() {
+        Toast.makeText(HomeActivity.this, "In the ML function", Toast.LENGTH_SHORT).show();
+        File file = new File("C://Users//gunav//Desktop//StockerRanker//app//review_com_file.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String temp = "Rating: " + br.readLine();
+            Toast.makeText(HomeActivity.this, temp, Toast.LENGTH_SHORT).show();
+            br.close();
         } catch(Exception e) {
             Toast.makeText(HomeActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
         }
@@ -71,6 +73,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         db = FirebaseFirestore.getInstance();
 
         pushToCloud("hello", "idk2", "idk 2", 3, 6, 1, 3.4);
@@ -80,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //instantiate logout button
         Button btnLogout = (Button) findViewById(R.id.btnLogout); //logout button
-
+getMLRating();
         //logs the user out
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
