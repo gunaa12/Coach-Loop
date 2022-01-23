@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context=".CoachActivity">
+
+    <TextView
+        android:id="@+id/Description"
+        android:textSize="12sp"
+        android:background="@color/gold"
+        android:textColor="@color/dark_gray"        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_margin="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enter"
+        android:textSize="12sp"
+        android:background="@color/gold"
+        android:textColor="@color/dark_gray"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:text="@string/pleaseEnter"
+        app:layout_constraintLeft_toLeftOf="@id/Description"
+        app:layout_constraintRight_toRightOf="@id/Description"
+        app:layout_constraintTop_toBottomOf="@id/Description" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="@string/logout"
+        android:textSize="12sp"
+        app:background="@color/green"
+        app:layout_constraintTop_toBottomOf="@id/enter"
+        app:layout_constraintLeft_toLeftOf="@id/enter"
+        app:layout_constraintRight_toRightOf="@id/enter"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

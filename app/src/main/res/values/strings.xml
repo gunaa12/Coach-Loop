@@ -8,4 +8,6 @@
     <string name="conf_password">Confirm Password\: </string>
     <string name="logout">Log Out</string>
     <string name="profile">View Profile</string>
+    <string name="pleaseEnter">Please enter your thoughts on this coach.</string>
+    <string name="submit">Submit</string>
 </resources>
