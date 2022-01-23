@@ -60,10 +60,12 @@ public class HomeActivity extends AppCompatActivity {
 
     private int getMLRating(String review) throws IOException {
         File file = new File("../../../../../ml/model2/rating_com_file.txt");
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String line = br.readLine();
-        System.out.println(line);
-        br.close();
+        try(BufferedReader br = new BufferedReader(new FileReader(file)) {
+            int ratingml = Integer.parseInt(br.readLine());
+        System.out.println("Rating: " + ratingml);
+        } catch(Exception e) {
+            Toast.makeText(HomeActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+        }
         return 0;
     }
 

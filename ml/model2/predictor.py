@@ -7,10 +7,14 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 
+# read the review from the review file
+file_input = open("ml/model2/review_com_file.txt", "r")
+review = file_input.read()
+file_input.close()
+
 # initializing
 nltk.download('stopwords')
 ps = PorterStemmer()
-review = "that was a fun time yesterday!"
 
 # preprocessing
 all_stopwords = stopwords.words('english')
@@ -32,3 +36,14 @@ classifier = joblib.load('./classifier_sentiment_model')
 y_pred = classifier.predict(X_fresh)
 
 print(y_pred)
+
+# write the rating back to the rating file
+
+file_output = open("ml/model2/rating_com_file.txt", "r+")
+
+# delete a rating if a previous rating is there
+file_output.seek(0)
+file_output.truncate()
+# write the actual prediction rating back
+file_output.write(y_pred)
+file_output.close()
