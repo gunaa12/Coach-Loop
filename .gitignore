@@ -11,6 +11,7 @@
 *.apk
 output.json
 .idea/
+.idea
 *.jks
 *.keystore
 *.hprof
